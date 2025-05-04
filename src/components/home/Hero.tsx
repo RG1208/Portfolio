@@ -28,13 +28,13 @@ const Hero: React.FC = () => {
                 Hello, I am
               </h2>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white">
-                Amit Kumar
+                Rachit Garg
               </h1>
               <h3 className="text-xl sm:text-2xl font-medium text-gray-600 dark:text-gray-300">
-                B.Tech in Computer Science & Engineering
+                B.Tech in Artificial Intelligence and Machine Learning
               </h3>
               <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-lg">
-                Indian Institute of Technology, Delhi
+                VIPS, Delhi
               </p>
               <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-lg">
                 Passionate developer with a focus on creating innovative solutions. I specialize in full-stack development and machine learning applications.
@@ -96,8 +96,8 @@ const Hero: React.FC = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl blur opacity-20 dark:opacity-40"></div>
               <div className="relative overflow-hidden rounded-2xl border-2 border-gray-200 dark:border-gray-700 shadow-xl bg-white dark:bg-gray-800">
                 <img
-                  src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                  alt="Amit Kumar"
+                  src="src/Images/RachitGarg.jpg"
+                  alt="Rachit Garg"
                   className="w-full h-80 object-cover object-center sm:h-96"
                 />
               </div>

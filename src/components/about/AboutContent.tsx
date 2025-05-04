@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, BookOpen, Briefcase, Coffee, Code, Heart, Star, User } from 'lucide-react';
+import { ArrowRight, BookOpen, Coffee, Code, Heart, Tv } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const AboutContent: React.FC = () => {
@@ -14,7 +14,7 @@ const AboutContent: React.FC = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="relative"
-          >
+            >
             <div className="absolute -inset-4 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl blur opacity-20 dark:opacity-40"></div>
             <div className="relative overflow-hidden rounded-2xl shadow-xl bg-white dark:bg-gray-800">
               <img
@@ -32,17 +32,19 @@ const AboutContent: React.FC = () => {
             viewport={{ once: true }}
             className="space-y-6"
           >
+<div>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
               About Me
             </h2>
             
             <p className="text-lg text-gray-700 dark:text-gray-300">
-              I'm a passionate Computer Science and Engineering student with a strong focus on developing innovative software solutions. My journey in technology began during my school days when I started coding simple games, which eventually grew into a deep interest in full-stack development and artificial intelligence.
+              Hi, I’m Rachit — a passionate B.Tech student specializing in AI & ML, with a deep love for full-stack web development and problem-solving through code. I thrive on building intuitive, impactful web applications using modern technologies like React.js, Express.js, and MongoDB. My journey has been fueled by curiosity, a drive to learn, and a desire to contribute meaningfully to tech-driven solutions that make a difference.
             </p>
-            
+
             <p className="text-lg text-gray-700 dark:text-gray-300">
-              Currently pursuing my B.Tech at IIT Delhi, I'm constantly exploring new technologies and working on projects that challenge me to expand my skills. I believe in the power of technology to solve real-world problems and create meaningful impact.
+              Beyond technical skills, I value collaboration, continuous learning, and adaptability. Whether it's contributing to hackathons, leading student projects, or freelancing, I bring energy, responsibility, and a growth mindset to everything I do. I'm currently exploring the intersections of AI, IoT, and web technologies — and I’m always open to new challenges and opportunities to grow.
             </p>
+            </div>
             
             <div className="grid grid-cols-2 gap-4 mt-6">
               <div className="flex items-start space-x-3">
@@ -51,7 +53,7 @@ const AboutContent: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-medium text-gray-900 dark:text-white">Education</h3>
-                  <p className="text-gray-600 dark:text-gray-400">B.Tech in CSE from IIT Delhi</p>
+                  <p className="text-gray-600 dark:text-gray-400">B.Tech in AIML from VIPS Delhi</p>
                 </div>
               </div>
               
@@ -65,25 +67,6 @@ const AboutContent: React.FC = () => {
                 </div>
               </div>
               
-              <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0 mt-1">
-                  <Briefcase className="h-5 w-5 text-primary-600 dark:text-primary-400" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-gray-900 dark:text-white">Experience</h3>
-                  <p className="text-gray-600 dark:text-gray-400">3 internships & freelancing</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0 mt-1">
-                  <Star className="h-5 w-5 text-primary-600 dark:text-primary-400" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-gray-900 dark:text-white">Projects</h3>
-                  <p className="text-gray-600 dark:text-gray-400">10+ completed projects</p>
-                </div>
-              </div>
             </div>
             
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-8">
@@ -97,17 +80,11 @@ const AboutContent: React.FC = () => {
               <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium">
                 Artificial Intelligence
               </span>
-              <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 rounded-full text-sm font-medium">
-                Cloud Computing
-              </span>
-              <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-300 rounded-full text-sm font-medium">
-                Open Source
-              </span>
               <span className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-300 rounded-full text-sm font-medium">
-                IoT
+                Machine Learning
               </span>
               <span className="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-300 rounded-full text-sm font-medium">
-                Problem Solving
+                IOT
               </span>
             </div>
             
@@ -121,16 +98,12 @@ const AboutContent: React.FC = () => {
                 <span>Coffee</span>
               </div>
               <div className="flex items-center space-x-1 px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 rounded-full text-sm font-medium">
-                <BookOpen className="h-3.5 w-3.5" />
-                <span>Reading</span>
+                <Tv className="h-3.5 w-3.5" />
+                <span>Watching Movies</span>
               </div>
               <div className="flex items-center space-x-1 px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 rounded-full text-sm font-medium">
                 <Heart className="h-3.5 w-3.5" />
-                <span>Fitness</span>
-              </div>
-              <div className="flex items-center space-x-1 px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 rounded-full text-sm font-medium">
-                <User className="h-3.5 w-3.5" />
-                <span>Volunteering</span>
+                <span>Listening Music</span>
               </div>
             </div>
             
@@ -146,7 +119,7 @@ const AboutContent: React.FC = () => {
           </motion.div>
         </div>
         
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -230,7 +203,7 @@ const AboutContent: React.FC = () => {
               </ul>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
