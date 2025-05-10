@@ -4,7 +4,7 @@ import SocialLinks from '../components/contact/SocialLinks';
 
 const ContactPage: React.FC = () => {
   useEffect(() => {
-    // Update document title
+
     document.title = 'Contact | Portfolio';
   }, []);
 

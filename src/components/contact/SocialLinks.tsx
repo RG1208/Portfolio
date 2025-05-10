@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, MapPin, Phone, Globe } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin } from 'lucide-react';
 
 const SocialLinks: React.FC = () => {
   const links = [
@@ -8,49 +8,33 @@ const SocialLinks: React.FC = () => {
       id: 1,
       icon: <Github className="h-6 w-6" />,
       label: 'GitHub',
-      value: 'github.com/amitdeveloper',
-      href: 'https://github.com',
+      value: 'github.com/RG1208',
+      href: 'https://github.com/RG1208',
       color: 'bg-gray-800 dark:bg-gray-700 text-white',
     },
     {
       id: 2,
       icon: <Linkedin className="h-6 w-6" />,
       label: 'LinkedIn',
-      value: 'linkedin.com/in/amitdeveloper',
-      href: 'https://linkedin.com',
+      value: 'linkedin.com/in/rg1208',
+      href: 'https://www.linkedin.com/in/rg1208/',
       color: 'bg-blue-600 text-white',
     },
     {
       id: 3,
       icon: <Mail className="h-6 w-6" />,
       label: 'Email',
-      value: 'amit.developer@example.com',
-      href: 'mailto:amit.developer@example.com',
+      value: 'rachitgarg1208@gmail.com',
+      href: 'mailto:rachitgarg1208@gmail.com',
       color: 'bg-red-500 text-white',
     },
     {
       id: 4,
-      icon: <Phone className="h-6 w-6" />,
-      label: 'Phone',
-      value: '+91 98765 43210',
-      href: 'tel:+919876543210',
-      color: 'bg-green-500 text-white',
-    },
-    {
-      id: 5,
       icon: <MapPin className="h-6 w-6" />,
       label: 'Location',
       value: 'Delhi, India',
       href: null,
       color: 'bg-orange-500 text-white',
-    },
-    {
-      id: 6,
-      icon: <Globe className="h-6 w-6" />,
-      label: 'Website',
-      value: 'amitdeveloper.com',
-      href: 'https://amitdeveloper.com',
-      color: 'bg-purple-600 text-white',
     },
   ];
 
