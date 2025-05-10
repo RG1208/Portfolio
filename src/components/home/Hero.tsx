@@ -96,7 +96,7 @@ const Hero: React.FC = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl blur opacity-20 dark:opacity-40"></div>
               <div className="relative overflow-hidden rounded-2xl border-2 border-gray-200 dark:border-gray-700 shadow-xl bg-white dark:bg-gray-800">
                 <img
-                  src="src/Images/RachitGarg.jpg"
+                  src="public/Images/RachitGarg.jpg"
                   alt="Rachit Garg"
                   className="w-full h-80 object-cover object-center sm:h-96"
                 />
