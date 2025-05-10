@@ -7,7 +7,7 @@ import SocialLinks from '../components/contact/SocialLinks';
 const HomePage: React.FC = () => {
   useEffect(() => {
     // Update document title
-    document.title = 'Portfolio | Rachit Garg - B.Tech Student';
+    document.title = 'Rachit Garg';
   }, []);
 
   return (
