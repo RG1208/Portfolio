@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import SkillCard from './SkillCard';
-import { skills, Skill } from '../../data/skills';
+import { skills, } from '../../data/skills';
 
 type SkillCategory = 'all' | 'frontend' | 'backend' | 'languages' | 'tools' | 'frameworks';
 
@@ -14,7 +14,7 @@ const SkillsSection: React.FC = () => {
     { value: 'backend', label: 'Backend' },
     { value: 'languages', label: 'Languages' },
     { value: 'tools', label: 'Tools' },
-    { value: 'frameworks', label: 'Frameworks' },
+    // { value: 'frameworks', label: 'Frameworks' },
   ];
   
   const filteredSkills = activeCategory === 'all' 

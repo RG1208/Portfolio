@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
             
             <div className="flex space-x-4">
               <a
-                href="https://github.com"
+                href="https://github.com/RG1208"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-gray-800 dark:bg-gray-700 text-white rounded-full hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors duration-200"
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
                 <Github className="h-5 w-5" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/rg1208"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-200"
@@ -77,7 +77,7 @@ const Hero: React.FC = () => {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="mailto:student@example.com"
+                href="mailto:rachitgarg1208@gmail.com"
                 className="p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors duration-200"
                 aria-label="Email"
               >
