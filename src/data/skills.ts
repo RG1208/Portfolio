@@ -6,7 +6,7 @@ export interface Skill {
 
 export const skills: Skill[] = [
   // Frontend
-  { name: 'React', level: 90, category: 'frontend' },
+  { name: 'React', level: 70, category: 'frontend' },
   { name: 'JavaScript', level: 85, category: 'frontend' },
   { name: 'TypeScript', level: 80, category: 'frontend' },
   { name: 'HTML/CSS', level: 95, category: 'frontend' },
@@ -15,9 +15,10 @@ export const skills: Skill[] = [
   
   // Backend
   { name: 'Node.js', level: 85, category: 'backend' },
+  { name: 'Flask', level: 70, category: 'backend' },
   { name: 'Express.js', level: 80, category: 'backend' },
   { name: 'MongoDB', level: 75, category: 'backend' },
-  { name: 'PostgreSQL', level: 70, category: 'backend' },
+  { name: 'SQLAlchemy', level: 70, category: 'backend' },
   // { name: 'Firebase', level: 80, category: 'backend' },
   
   // Languages
@@ -28,7 +29,7 @@ export const skills: Skill[] = [
   
   // Tools
   { name: 'Git', level: 90, category: 'tools' },
-  // { name: 'Docker', level: 70, category: 'tools' },
+  { name: 'Docker', level: 60, category: 'tools' },
   { name: 'VS Code', level: 95, category: 'tools' },
   { name: 'Figma', level: 65, category: 'tools' },
   

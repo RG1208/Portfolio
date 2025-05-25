@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import CertificateCard from './CertificateCard';
 import { certificates } from '../../data/certificates';
-import AchievementCard from './AchievementCard';
-import { achievements } from '../../data/certificates';
+// import AchievementCard from './AchievementCard';
+// import { achievements } from '../../data/certificates';
 
 const CertificatesSection: React.FC = () => {
   return (
@@ -35,16 +35,16 @@ const CertificatesSection: React.FC = () => {
           </div>
         </div>
         
-        <div>
+        {/* <div>
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
             Achievements
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {achievements.map((achievement, index) => (
-              <AchievementCard key={achievement.id} achievement={achievement} index={index} />
-            ))}
+              {achievements.map((achievement, index) => (
+                <AchievementCard key={achievement.id} achievement={achievement} index={index} />
+              ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
