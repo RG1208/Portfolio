@@ -10,6 +10,7 @@ import ExperiencePage from './pages/ExperiencePage';
 import EducationPage from './pages/EducationPage';
 import CertificatesPage from './pages/CertificatesPage';
 import ContactPage from './pages/ContactPage';
+import ProjectDetail from './data/projectDetail';
 import './index.css';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/skills" element={<SkillsPage />} />
               <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/projects/:id" element={<ProjectDetail />} /> {/* ✅ NEW */}
               <Route path="/experience" element={<ExperiencePage />} />
               <Route path="/education" element={<EducationPage />} />
               <Route path="/certificates" element={<CertificatesPage />} />
@@ -36,5 +38,4 @@ function App() {
     </ThemeProvider>
   );
 }
-
 export default App;
