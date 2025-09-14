@@ -46,5 +46,24 @@ export const projects: Project[] = [
       "JWT-secured APIs with protected routes",
       "Fully responsive UI using Tailwind CSS and React",
     ],
-  }
+  },
+  {
+  "id": "voice-for-the-weak",
+  "title": "Voice for the Weak",
+  "description": "Voice for the Weak is an innovative AI-powered platform designed to empower underprivileged and rural communities by providing easy access to legal assistance, government welfare schemes, and case analysis. The platform consists of three main verticals: a Government Scheme Recommender, BNS (Bharat Nyaya Sahayak) Section Analysis, and Case Win Probability Finder. It helps illiterate or semi-literate users by offering a multilingual voice interface along with a user-friendly web interface. Built using React for the frontend and Flask for the backend, the system is tailored to ensure accessibility, fast interaction, and secure data processing. The project emphasizes multilingual support, AI-driven recommendations, and real-time case analysis, helping bridge the digital divide for marginalized populations.",
+  "technologies": ["React", "Flask", "Whisper NLP", "GPT Model", "Machine Learning", "PostgreSQL", "Tailwind CSS"],
+  "image": "https://res.cloudinary.com/dx2ttgkba/image/upload/v1752658510/VoiceForWeak_xn5kfp.png",
+  "githubUrl": "https://github.com/RG1208/VoiceForWeak",
+  "demoUrl": "https://res.cloudinary.com/dx2ttgkba/video/upload/v1756573428/voice_1_zxvtku.mp4",
+  "featured": true,
+  "keyFeatures": [
+    "Government Scheme Recommender: Personalized recommendations based on user profile",
+    "BNS Section Analysis: Voice-powered legal advice to analyze and explain legal sections in simple terms",
+    "Case Win Probability Finder: Predicts the likelihood of winning a legal case based on input data and historical judgments",
+    "Multilingual interface supporting Hindi, English, and regional languages",
+    "Voice-based interface for illiterate users powered by Whisper NLP and GPT",
+    "Secure RESTful backend built with Flask and PostgreSQL",
+    "Fully responsive and accessible frontend built with React and Tailwind CSS"
+  ]
+}
 ];
