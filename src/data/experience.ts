@@ -11,44 +11,18 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     id: 1,
-    role: 'Software Development Intern',
-    company: 'Tech Innovations Inc.',
-    location: 'Bangalore, India',
-    duration: 'May 2023 - July 2023',
+    role: 'AI Engineer Intern',
+    company: 'SysTools',
+    location: 'New Delhi, India',
+    duration: 'July 2025 - July 2025',
     description: [
-      'Developed and maintained front-end components for the company\'s flagship product using React and TypeScript',
-      'Implemented responsive design principles for improved user experience across devices',
-      'Collaborated with the back-end team to integrate APIs and optimize data flow',
-      'Participated in daily stand-ups and bi-weekly sprint planning meetings',
+      'Worked on the development and enhancement of the "Voice For The Weak" platform aimed at empowering underserved and illiterate populations in rural India',
+      'Built and maintained front-end components using React, with a focus on multilingual support and voice interaction',
+      'Integrated machine learning models for Government Scheme Recommender, BNS (Bharatiya Nyaya Sanhita) Voice Assistant, and Case Win Probability Finder',
+      'Collaborated with back-end team (Flask) to design APIs and ensure seamless communication between ML models and web interface',
+      'Ensured the platform supports voice & text-based interaction for intuitive and easy access by illiterate users',
+      'Participated in agile development processes including sprint planning, code reviews, and daily stand-ups'
     ],
-    technologies: ['React', 'TypeScript', 'REST API', 'Git', 'Jira'],
-  },
-  {
-    id: 2,
-    role: 'Research Assistant',
-    company: 'University AI Lab',
-    location: 'Remote',
-    duration: 'January 2023 - April 2023',
-    description: [
-      'Assisted in developing machine learning models for natural language processing tasks',
-      'Collected and preprocessed training data for sentiment analysis algorithms',
-      'Documented research findings and contributed to academic papers',
-      'Presented research progress in weekly lab meetings',
-    ],
-    technologies: ['Python', 'TensorFlow', 'NLP', 'Jupyter Notebooks', 'PyTorch'],
-  },
-  {
-    id: 3,
-    role: 'Web Development Freelancer',
-    company: 'Self-employed',
-    location: 'Remote',
-    duration: 'August 2022 - Present',
-    description: [
-      'Designed and developed responsive websites for small business clients',
-      'Created custom solutions including e-commerce functionality and content management systems',
-      'Provided ongoing maintenance and support for client websites',
-      'Implemented SEO best practices to improve client site visibility',
-    ],
-    technologies: ['HTML/CSS', 'JavaScript', 'React', 'WordPress', 'Shopify'],
-  },
+    technologies: ['React', 'Flask', 'Tailwind CSS', 'Python', 'Sentence Transformers', 'WeasyPrint', 'PyTorch', 'REST API', 'Git']
+}
 ];
