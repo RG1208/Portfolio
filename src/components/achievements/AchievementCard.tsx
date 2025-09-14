@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Achievement } from '../../data/certificates';
+import { Achievement } from '../../data/achievements';
 import { Calendar, Trophy } from 'lucide-react';
 
 interface AchievementCardProps {

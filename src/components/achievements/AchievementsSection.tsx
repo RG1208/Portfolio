@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import AchievementCard from '../certificates/AchievementCard';
-import { achievements } from '../../data/certificates';
+import AchievementCard from './AchievementCard';
+import { achievements } from '../../data/achievements';
 
 const AchievementsSection: React.FC = () => {
   return (
