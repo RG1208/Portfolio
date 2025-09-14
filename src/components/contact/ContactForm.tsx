@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../../config/emailjs';
 
 type FormValues = {
   name: string;
@@ -76,7 +78,7 @@ const ContactForm: React.FC = () => {
     return Object.keys(errors).length === 0;
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!validateForm()) {
@@ -86,8 +88,24 @@ const ContactForm: React.FC = () => {
     setIsSubmitting(true);
     setSubmitError('');
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      // Prepare template parameters
+      const templateParams = {
+        from_name: formValues.name,
+        from_email: formValues.email,
+        subject: formValues.subject,
+        message: formValues.message,
+        to_email: EMAILJS_CONFIG.toEmail,
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
+        templateParams,
+        EMAILJS_CONFIG.publicKey
+      );
+
       setIsSubmitting(false);
       setSubmitSuccess(true);
       
@@ -103,7 +121,12 @@ const ContactForm: React.FC = () => {
       setTimeout(() => {
         setSubmitSuccess(false);
       }, 5000);
-    }, 1500);
+      
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setIsSubmitting(false);
+      setSubmitError('Failed to send message. Please try again or contact me directly at rachitgarg1208@gmail.com');
+    }
   };
 
   return (
