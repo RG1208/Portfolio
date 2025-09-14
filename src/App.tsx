@@ -9,6 +9,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import ExperiencePage from './pages/ExperiencePage';
 import EducationPage from './pages/EducationPage';
 import CertificatesPage from './pages/CertificatesPage';
+import AchievementsPage from './pages/AchievementsPage';
 import ContactPage from './pages/ContactPage';
 import ProjectDetail from './data/projectDetail';
 import './index.css';
@@ -29,6 +30,7 @@ function App() {
               <Route path="/experience" element={<ExperiencePage />} />
               <Route path="/education" element={<EducationPage />} />
               <Route path="/certificates" element={<CertificatesPage />} />
+              <Route path="/achievements" element={<AchievementsPage />} />
               <Route path="/contact" element={<ContactPage />} />
             </Routes>
           </main>
