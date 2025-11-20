@@ -18,5 +18,14 @@ export const achievements: Achievement[] = [
     imageUrl: 'https://res.cloudinary.com/dx2ttgkba/image/upload/v1757854370/WhatsApp_Image_2025-09-14_at_18.20.45_cubbxu.jpg',
     certificateUrl: 'https://res.cloudinary.com/dx2ttgkba/image/upload/v1757854370/WhatsApp_Image_2025-09-14_at_18.22.34_ecxefl.jpg',
   },
+  {
+    id: 2,
+    title: '4th Place - IILM Ideathon 2025',
+    event: 'IILM University Gurugram',
+    date: 'November 2025',
+    description: 'Secured 4th place among 50+ teams in a university-level ideathon (Robotics & Automation) at IILM University. Recognized for presenting an innovative, sustainable idea that integrated technology and strong analytical ability.',
+    imageUrl: 'https://res.cloudinary.com/dx2ttgkba/image/upload/v1757854370/WhatsApp_Image_2025-09-14_at_18.20.45_cubbxu.jpg',
+    certificateUrl: 'https://res.cloudinary.com/dx2ttgkba/image/upload/v1757854370/WhatsApp_Image_2025-09-14_at_18.22.34_ecxefl.jpg',
+  },
 
 ];
