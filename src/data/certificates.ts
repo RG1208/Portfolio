@@ -24,4 +24,12 @@ export const certificates: Certificate[] = [
     url: 'https://res.cloudinary.com/dx2ttgkba/image/upload/v1748178762/Flask_yeojjq.png',
     skills: ['Flask','Docker','Python', 'Backend Development', 'Web Development'],
   },
+  {
+    id: 3,
+    title: 'GenAI FullStack Developer',
+    issuer: 'Udemy',
+    date: 'October 2025',
+    url: 'https://res.cloudinary.com/dx2ttgkba/image/upload/v1763731063/FullStackGenAI_mitshg.jpg',
+    skills: ['GenAI','RAG','Docker','Git','LangChain','LangGraph','Python', 'FastAPI', 'Web Development'],
+  },
 ];
