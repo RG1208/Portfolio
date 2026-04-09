@@ -1,7 +1,7 @@
-import { useParams} from 'react-router-dom';
-import { projects } from './projects';
+import { Link, useParams } from 'react-router-dom';
+import { projects } from '../data/projects';
 
-const ProjectDetail = () => {
+const ProjectDetailPage = () => {
   const { id } = useParams();
   const project = projects.find((p) => p.id === id);
 
@@ -17,12 +17,12 @@ const ProjectDetail = () => {
     <div className="max-w-4xl mx-auto px-4 py-12">
       {/* Back link */}
       <div className="mb-6">
-        <a
-          href="/projects"
-          className="text-primary-600 dark:text-primary-400 hover:underline text-sm"
-        >
-          ← Back to Projects
-        </a>
+          <Link
+            to="/projects"
+            className="text-primary-600 dark:text-primary-400 hover:underline text-sm"
+          >
+            ← Back to Projects
+          </Link>
       </div>
 
       {/* Title */}
@@ -101,4 +101,4 @@ const ProjectDetail = () => {
   );
 };
 
-export default ProjectDetail;
+export default ProjectDetailPage;
