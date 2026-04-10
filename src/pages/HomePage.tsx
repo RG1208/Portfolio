@@ -281,15 +281,11 @@ const HeroSection: React.FC = () => {
 };
 
 const HomePage: React.FC = () => {
-  const [filter, setFilter] = useState<'all' | 'featured'>('all');
+  const featuredProjects = projects.filter((project) => project.featured);
 
   useEffect(() => {
     document.title = 'Rachit Garg | Portfolio';
   }, []);
-
-  const filteredProjects = filter === 'all'
-    ? projects
-    : projects.filter((project) => project.featured);
 
   return (
     <div className="bg-[#050100] min-h-screen text-white font-sans selection:bg-[#ff5e00]/30 selection:text-white">
@@ -372,28 +368,13 @@ const HomePage: React.FC = () => {
               </p>
             </div>
 
-            <div className="inline-flex bg-white/5 border border-white/10 p-1 rounded-full">
-              <button
-                onClick={() => setFilter('all')}
-                className={`px-6 py-2.5 text-sm font-medium rounded-full transition-colors ${
-                  filter === 'all' ? 'bg-[#ff5e00] text-white shadow-lg' : 'text-gray-400 hover:text-white'
-                }`}
-              >
-                All Projects
-              </button>
-              <button
-                onClick={() => setFilter('featured')}
-                className={`px-6 py-2.5 text-sm font-medium rounded-full transition-colors ${
-                  filter === 'featured' ? 'bg-[#ff5e00] text-white shadow-lg' : 'text-gray-400 hover:text-white'
-                }`}
-              >
-                Featured
-              </button>
+            <div className="inline-flex bg-[#ff5e00]/10 border border-[#ff5e00]/30 px-5 py-2 rounded-full text-sm font-medium text-[#ffb38a]">
+              Featured Projects
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project, index) => (
+            {featuredProjects.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
             ))}
           </div>

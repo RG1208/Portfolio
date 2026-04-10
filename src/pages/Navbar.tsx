@@ -5,6 +5,19 @@ import { Download, Menu, X } from 'lucide-react';
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const resumeDriveLink =
+    'https://drive.google.com/file/d/1SO1igGpY0i-ZCqeMx8VcYoBXZ9ThOKfu/view?usp=sharing';
+
+  const getDriveDirectDownloadLink = (url: string) => {
+    const fileIdMatch = url.match(/\/d\/([^/]+)/) || url.match(/[?&]id=([^&]+)/);
+
+    if (!fileIdMatch) return url;
+
+    return `https://drive.google.com/uc?export=download&id=${fileIdMatch[1]}`;
+  };
+
+  const resumeDownloadLink = getDriveDirectDownloadLink(resumeDriveLink);
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
@@ -47,9 +60,12 @@ const Navbar: React.FC = () => {
 
         {/* Right Side Actions */}
         <div className="flex items-center gap-4 z-50">
-          <button className="hidden sm:flex items-center gap-2 border border-white/20 text-white px-5 py-2.5 rounded-full hover:bg-white/10 transition-colors text-sm font-medium shrink-0">
+          <a
+            href={resumeDownloadLink}
+            className="hidden sm:flex items-center gap-2 border border-white/20 text-white px-5 py-2.5 rounded-full hover:bg-white/10 transition-colors text-sm font-medium shrink-0"
+          >
             <Download size={16} /> Download Resume
-          </button>
+          </a>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -89,9 +105,13 @@ const Navbar: React.FC = () => {
           ))}
           
           {/* Mobile Resume Button */}
-          <button className="sm:hidden w-full mt-4 flex items-center justify-center gap-2 border border-white/20 text-white px-5 py-3 rounded-xl hover:bg-white/10 transition-colors font-medium">
+          <a
+            href={resumeDownloadLink}
+            onClick={() => setIsOpen(false)}
+            className="sm:hidden w-full mt-4 flex items-center justify-center gap-2 border border-white/20 text-white px-5 py-3 rounded-xl hover:bg-white/10 transition-colors font-medium"
+          >
             <Download size={18} /> Download Resume
-          </button>
+          </a>
         </div>
       </div>
     </nav>

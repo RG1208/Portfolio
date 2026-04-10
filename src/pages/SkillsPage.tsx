@@ -26,6 +26,64 @@ const getSkillLevelLabel = (level: number): string => {
   return 'Beginner';
 };
 
+const getTierBadgeClasses = (level: number): string => {
+  if (level >= 90) return 'bg-[#ff5e00]/20 text-[#ffd8bf] border-[#ff5e00]/40';
+  if (level >= 75) return 'bg-amber-500/15 text-amber-200 border-amber-400/40';
+  if (level >= 60) return 'bg-sky-500/15 text-sky-200 border-sky-400/40';
+  if (level >= 40) return 'bg-emerald-500/15 text-emerald-200 border-emerald-400/40';
+  return 'bg-gray-500/15 text-gray-200 border-gray-400/40';
+};
+
+const getCategoryLabel = (category: Skill['category']): string => {
+  switch (category) {
+    case 'frontend':
+      return 'Frontend';
+    case 'languages':
+      return 'Languages';
+    case 'backend':
+      return 'Backend';
+    case 'ai':
+      return 'AI / GenAI';
+    case 'database':
+      return 'Database';
+    case 'devops':
+      return 'DevOps';
+    case 'iot':
+      return 'IoT';
+    case 'tools':
+      return 'Tools';
+    case 'frameworks':
+      return 'Frameworks';
+    default:
+      return 'Skill';
+  }
+};
+
+const getCategoryBadgeClasses = (category: Skill['category']): string => {
+  switch (category) {
+    case 'frontend':
+      return 'bg-pink-500/15 text-pink-200 border-pink-400/30';
+    case 'languages':
+      return 'bg-indigo-500/15 text-indigo-200 border-indigo-400/30';
+    case 'backend':
+      return 'bg-cyan-500/15 text-cyan-200 border-cyan-400/30';
+    case 'ai':
+      return 'bg-violet-500/15 text-violet-200 border-violet-400/30';
+    case 'database':
+      return 'bg-teal-500/15 text-teal-200 border-teal-400/30';
+    case 'devops':
+      return 'bg-blue-500/15 text-blue-200 border-blue-400/30';
+    case 'iot':
+      return 'bg-lime-500/15 text-lime-200 border-lime-400/30';
+    case 'tools':
+      return 'bg-orange-500/15 text-orange-200 border-orange-400/30';
+    case 'frameworks':
+      return 'bg-fuchsia-500/15 text-fuchsia-200 border-fuchsia-400/30';
+    default:
+      return 'bg-white/10 text-gray-200 border-white/20';
+  }
+};
+
 const SkillCard: React.FC<SkillCardProps> = ({ skill, index }) => {
   const variants = {
     hidden: { opacity: 0, y: 20 },
@@ -46,36 +104,34 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index }) => {
       whileInView="visible"
       viewport={{ once: true }}
       custom={index}
-      className="bg-[#1a0c05]/40 backdrop-blur-xl border border-white/5 p-6 rounded-2xl hover:border-[#ff5e00]/30 hover:bg-[#1a0c05]/60 transition-all duration-300 group shadow-lg"
+      className="relative overflow-hidden bg-[#1a0c05]/40 backdrop-blur-xl border border-white/5 p-6 rounded-2xl hover:border-[#ff5e00]/30 hover:bg-[#1a0c05]/60 transition-all duration-300 group shadow-lg"
     >
+      <div className="absolute -top-16 -right-16 w-40 h-40 bg-[#ff5e00]/10 blur-3xl rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       <div className="space-y-4">
-        <div className="flex justify-between items-center">
-          <h3 className="text-lg font-bold text-white group-hover:text-[#ff5e00] transition-colors">
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="text-lg font-bold text-white group-hover:text-[#ff5e00] transition-colors leading-tight">
             {skill.name}
           </h3>
-          <span className="text-[#ff5e00] text-sm font-bold bg-[#ff5e00]/10 px-2.5 py-1 rounded-md border border-[#ff5e00]/20">
-            {skill.level}%
+          <span
+            className={`text-xs font-semibold px-3 py-1.5 rounded-full border whitespace-nowrap ${getTierBadgeClasses(
+              skill.level
+            )}`}
+          >
+            {getSkillLevelLabel(skill.level)}
           </span>
         </div>
 
-        <div className="w-full bg-white/5 rounded-full h-2 overflow-hidden border border-white/5">
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: `${skill.level}%` }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 1,
-              delay: 0.2 + index * 0.05,
-              ease: 'easeOut',
-            }}
-            className="h-full bg-gradient-to-r from-[#ff5e00] to-[#ffaa00] rounded-full relative"
+        <div className="flex flex-wrap items-center gap-2">
+          <span
+            className={`text-xs font-medium px-3 py-1.5 rounded-full border ${getCategoryBadgeClasses(
+              skill.category
+            )}`}
           >
-            <div className="absolute top-0 right-0 bottom-0 w-4 bg-white/30 blur-[2px] rounded-full"></div>
-          </motion.div>
-        </div>
-
-        <div className="text-xs text-gray-500 text-right uppercase tracking-wider font-semibold">
-          {getSkillLevelLabel(skill.level)}
+            {getCategoryLabel(skill.category)}
+          </span>
+          <span className="text-xs font-medium px-3 py-1.5 rounded-full border border-white/15 bg-white/5 text-gray-300">
+            Hands-on
+          </span>
         </div>
       </div>
     </motion.div>
