@@ -1,5 +1,6 @@
 export interface Experience {
   id: number;
+  type: string;
   role: string;
   company: string;
   location: string;
@@ -10,40 +11,50 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    id: 1,
+    type: 'Hybrid',
+    role: 'Full Stack GenAI Engineer',
+    company: 'Systools Software Pvt. Ltd.',
+    location: 'New Delhi, India',
+    duration: 'Jan 2026 – Present',
+    description: [
+      'Designed and implemented a RAG-based conversational AI system using LangChain and FAISS for fast, context-aware responses',
+      'Built LLM-powered applications using custom datasets and vector databases, improving response relevance and retrieval accuracy',
+      'Developed scalable backend services using FastAPI and Docker with modular architecture and optimized API performance',
+      'Integrated frontend interfaces and database systems to deliver complete end-to-end GenAI solutions'
+    ],
+    technologies: ['LangChain', 'FAISS', 'FastAPI', 'Docker', 'LLMs', 'RAG', 'Python', 'React', 'MySQL', 'Git']
+  },
+
+  {
+    id: 2,
+    type: 'Hybrid',
+    role: 'AI Engineer Intern (Team Lead)',
+    company: 'Cybersics',
+    location: 'New Delhi, India',
+    duration: 'Aug 2025 – Oct - 2025',
+    description: [
+      'Led development of ML pipelines for preprocessing and analyzing high-resolution satellite imagery',
+      'Implemented deep learning models (CNNs/Transformers) for classification, anomaly detection, and segmentation tasks',
+      'Built end-to-end workflows for detecting patterns such as land-use changes and environmental variations',
+      'Integrated model outputs into a web dashboard for real-time visualization and analysis'
+    ],
+    technologies: ['Python', 'PyTorch', 'Transformers', 'Scikit-learn', 'Computer Vision', 'Git']
+  },
+
+  {
     id: 3,
+    type: 'Full-Time',
     role: 'AI Engineer Intern',
     company: 'SysTools',
     location: 'New Delhi, India',
-    duration: 'July 2025 - July 2025',
+    duration: 'July 2025',
     description: [
-      'Worked on the development and enhancement of the "Voice For The Weak" platform aimed at empowering underserved and illiterate populations in rural India',
-      'Built and maintained front-end components using React, with a focus on multilingual support and voice interaction',
-      'Integrated machine learning models for Government Scheme Recommender, BNS (Bharatiya Nyaya Sanhita) Voice Assistant, and Case Win Probability Finder',
-      'Collaborated with back-end team (Flask) to design APIs and ensure seamless communication between ML models and web interface',
-      'Ensured the platform supports voice & text-based interaction for intuitive and easy access by illiterate users',
-      'Participated in agile development processes including sprint planning, code reviews, and daily stand-ups'
+      'Developed features for an AI-driven platform enabling voice-based access to government services',
+      'Built responsive UI components using React with multilingual and voice interaction support',
+      'Integrated ML models via REST APIs for recommendation systems and conversational assistants',
+      'Collaborated with backend services to ensure seamless communication between ML models and user interface'
     ],
-    technologies: ['React', 'Flask', 'Tailwind CSS', 'Python', 'Sentence Transformers', 'WeasyPrint', 'PyTorch', 'REST API', 'Git']
-},
-  {
-    id: 2,
-    role: 'AI Engineer Intern  (Team Lead) ',
-    company: 'AI Grand Challenge',
-    location: 'New Delhi, India',
-    duration: 'Aug 2025 - Present',
-    description: [
-    'Participated in the AI Grand Challenge under Problem Statement PS-03 focused on satellite image intelligence for environmental and geospatial analysis',
-    'Worked on designing ML pipelines for preprocessing high-resolution satellite images including noise removal, tiling, normalization, and geo-coordinate mapping',
-    'Implemented deep learning models (CNNs/Transformers) for tasks such as land cover classification, anomaly detection, and feature segmentation',
-    'Built an end-to-end workflow to detect patterns in satellite imagery such as urban expansion, vegetation change, and waterbody variations',
-    'Integrated the ML outputs into an interactive web dashboard using React and Flask, enabling real-time visualization and analysis of satellite data',
-    'Performed fine-tuning and hyperparameter optimization to improve model accuracy and robustness across diverse geographical regions',
-    'Collaborated with teammates on dataset preparation, model experimentation, evaluation strategy, and final solution presentation'
-   ],
-    technologies: [
-      'Python', 'PyTorch', 'Transformers', 'Scikit-Learn','Transfer Learning', 'Object Detection', 
-      'NumPy', 'Pandas', 'Git'
-    ]
-}
-
+    technologies: ['React', 'Flask', 'Python', 'Tailwind CSS', 'PyTorch', 'REST API', 'Git']
+  }
 ];

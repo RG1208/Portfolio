@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
       <div className="flex items-center justify-between">
         {/* Logo */}
         <div className="text-2xl font-bold text-white tracking-tighter shrink-0 z-50">
-          rachit.
+          {/* Rachit Garg */}
         </div>
 
         {/* Desktop Navigation (Pill shape) */}

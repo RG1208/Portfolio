@@ -115,13 +115,15 @@ const AboutPage: React.FC = () => {
           >
             <h3 className="text-3xl font-bold text-white mb-6">Hello, I'm Rachit.</h3>
             <p>
-              I am a dedicated developer and innovator currently pursuing my B.Tech in Artificial Intelligence and Machine Learning at VIPS, Delhi. I specialize in traversing the entire technology stack—from deep learning algorithms and smart contracts to sleek, user-centric web interfaces.
+              I am a Full Stack Developer and innovator currently pursuing my B.Tech in Artificial Intelligence and Machine Learning at VIPS, Delhi. I specialize in building end-to-end systems, integrating backend engineering, Generative AI, and scalable deployments to create intelligent, real-world solutions.
             </p>
+
             <p>
-              My passion lies in solving real-world critical problems. Whether it's developing <strong className="text-white">ResQBridge and SIDD</strong> to detect vehicle accidents in real-time using IoT, or building forensic platforms to combat misinformation, I build software that matters.
+              My passion lies in solving impactful real-world problems through technology. I focus on developing AI-powered applications using RAG pipelines, LLMs, and modern full-stack technologies, with an emphasis on scalability, performance, and practical usability.
             </p>
+
             <p>
-              I believe in the power of data integrity, utilizing Blockchain and IPFS in my projects, and I am driven by a design philosophy that favors clean, minimal, and futuristic aesthetics. When I'm not writing Python, React, or configuring a WSL environment, I'm likely researching new AI models or designing my next productivity tool.
+              I enjoy working at the intersection of software engineering and AI, with hands-on experience in GenAI, Agentic AI systems, and modern development practices. When I'm not building applications using Python, React, or FastAPI, I am exploring new AI architectures and designing systems that can scale efficiently in real-world environments.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-6">
@@ -131,79 +133,6 @@ const AboutPage: React.FC = () => {
               <span className="px-5 py-2 bg-white/5 border border-white/10 rounded-full text-sm font-medium hover:border-[#ff5e00]/50 transition-colors">LangChain & RAG</span>
             </div>
           </motion.div>
-        </div>
-
-        {/* Core Values Section */}
-        <div className="mb-32">
-          <motion.div 
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             className="text-center mb-12"
-          >
-            <h3 className="text-3xl md:text-4xl font-bold text-white">Core Focus Areas</h3>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {coreValues.map((val, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="bg-[#1a0c05]/40 backdrop-blur-xl border border-white/5 hover:border-[#ff5e00]/30 transition-all duration-300 p-8 rounded-3xl group"
-              >
-                <div className="transform group-hover:scale-110 transition-transform duration-300 origin-left">
-                  {val.icon}
-                </div>
-                <h4 className="text-xl font-bold text-white mb-3">{val.title}</h4>
-                <p className="text-gray-400 text-sm leading-relaxed">{val.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Timeline Section */}
-        <div className="max-w-4xl mx-auto">
-          <motion.div 
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             className="text-center mb-16"
-          >
-            <h3 className="text-3xl md:text-4xl font-bold text-white">Experience & Education</h3>
-            <p className="text-gray-400 mt-4">My academic and technical milestone journey</p>
-          </motion.div>
-
-          <div className="relative border-l border-white/10 ml-4 md:ml-6 space-y-12 pb-12">
-            {timelineData.map((item, index) => (
-              <motion.div 
-                key={item.id}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="relative pl-10 md:pl-12"
-              >
-                {/* Timeline Dot */}
-                <div className="absolute -left-[21px] top-1 w-10 h-10 bg-[#1a0c05] border border-white/20 rounded-full flex items-center justify-center text-[#ff5e00] shadow-[0_0_15px_rgba(255,94,0,0.2)]">
-                  {item.icon}
-                </div>
-
-                <div className="bg-white/5 border border-white/10 backdrop-blur-sm p-6 md:p-8 rounded-2xl hover:bg-white/10 transition-colors">
-                  <span className="inline-block px-3 py-1 bg-[#ff5e00]/10 text-[#ff5e00] text-xs font-bold rounded-full mb-4 border border-[#ff5e00]/20">
-                    {item.year}
-                  </span>
-                  <h4 className="text-xl md:text-2xl font-bold text-white mb-2">{item.title}</h4>
-                  <h5 className="text-md font-medium text-gray-400 mb-4">{item.organization}</h5>
-                  <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
 
       </div>

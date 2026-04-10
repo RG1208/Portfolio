@@ -25,8 +25,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
     }),
   };
 
-  const handleSeeMore = () => {
+  const openProjectDetail = () => {
     navigate(`/projects/${project.id}`);
+  };
+
+  const handleCardKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openProjectDetail();
+    }
   };
 
   return (
@@ -36,7 +43,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       whileInView="visible"
       viewport={{ once: true }}
       custom={index}
-      className="bg-[#1a0c05]/40 backdrop-blur-xl border border-white/5 rounded-3xl overflow-hidden hover:border-[#ff5e00]/30 transition-all duration-300 group shadow-lg flex flex-col h-full"
+      onClick={openProjectDetail}
+      onKeyDown={handleCardKeyDown}
+      role="link"
+      tabIndex={0}
+      aria-label={`Open project ${project.title}`}
+      className="bg-[#1a0c05]/40 backdrop-blur-xl border border-white/5 rounded-3xl overflow-hidden hover:border-[#ff5e00]/30 transition-all duration-300 group shadow-lg flex flex-col h-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5e00]"
     >
       <div className="relative h-56 overflow-hidden">
         {/* Dark gradient overlay for smooth blending */}
@@ -80,13 +92,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         </div>
 
         {/* Action Button */}
-        <button
-          onClick={handleSeeMore}
-          className="mt-auto w-full py-3.5 rounded-xl border border-white/10 text-white font-medium hover:bg-[#ff5e00] hover:border-[#ff5e00] transition-all duration-300 flex items-center justify-center group/btn"
+        <div
+          className="mt-auto w-full py-3.5 rounded-xl border border-white/10 text-white font-medium group-hover:bg-[#ff5e00] group-hover:border-[#ff5e00] transition-all duration-300 flex items-center justify-center group/btn"
+          aria-hidden="true"
         >
           View Case Study 
           <ArrowRight className="ml-2 h-4 w-4 transform group-hover/btn:translate-x-1 transition-transform" />
-        </button>
+        </div>
       </div>
     </motion.div>
   );

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Github, Linkedin, Mail, MapPin, Send, Briefcase, Quote } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail, Send, Briefcase } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import { projects, Project } from '../data/projects';
@@ -46,6 +46,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
     }),
   };
 
+  const openProjectDetail = () => {
+    navigate(`/projects/${project.id}`);
+  };
+
+  const handleCardKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openProjectDetail();
+    }
+  };
+
   return (
     <motion.div
       variants={variants}
@@ -53,7 +64,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       whileInView="visible"
       viewport={{ once: true }}
       custom={index}
-      className="bg-[#1a1310]/60 backdrop-blur-sm border border-white/5 rounded-2xl overflow-hidden hover:border-[#ff5e00]/30 transition-all duration-300 group"
+      onClick={openProjectDetail}
+      onKeyDown={handleCardKeyDown}
+      role="link"
+      tabIndex={0}
+      aria-label={`Open project ${project.title}`}
+      className="bg-[#1a1310]/60 backdrop-blur-sm border border-white/5 rounded-2xl overflow-hidden hover:border-[#ff5e00]/30 transition-all duration-300 group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5e00]"
     >
       <div className="relative h-48 sm:h-56 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-[#050100] to-transparent z-10 opacity-60"></div>
@@ -89,12 +105,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           ))}
         </div>
 
-        <button
-          onClick={() => navigate(`/projects/${project.id}`)}
-          className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-[#ff5e00] hover:border-[#ff5e00] transition-all duration-300 flex items-center justify-center"
+        <div
+          className="w-full py-3 rounded-xl border border-white/10 text-white font-medium group-hover:bg-[#ff5e00] group-hover:border-[#ff5e00] transition-all duration-300 flex items-center justify-center"
+          aria-hidden="true"
         >
           View Details <ArrowRight className="ml-2 h-4 w-4" />
-        </button>
+        </div>
       </div>
     </motion.div>
   );
@@ -196,19 +212,19 @@ const ContactForm: React.FC = () => {
 
 const HeroSection: React.FC = () => {
   return (
-    <div className="relative min-h-screen flex items-center pt-20 pb-12 px-6 md:px-12 bg-[#050100] overflow-hidden font-sans">
+    <div className="relative min-h-screen flex items-center pt-20 pb-0 px-6 md:px-12 bg-[#050100] overflow-hidden font-sans">
       
-      {/* Background Radial Gradient exactly matching the screenshot */}
+      {/* Background Radial Gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_50%,_#612100_0%,_#290c00_40%,_#050100_80%)] opacity-100 z-0 pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto w-full z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto w-full z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full">
         
         {/* Left Column - Text Content */}
         <motion.div
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="space-y-6"
+          className="space-y-6 lg:pb-32"
         >
           <div className="space-y-2">
             <h1 className="text-xl md:text-2xl text-gray-300 font-medium">
@@ -239,105 +255,26 @@ const HeroSection: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Right Column - Visuals & Glassmorphism */}
-        <motion.div
-          initial={{ x: 50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="relative h-[500px] lg:h-[600px] flex items-center justify-center mt-12 lg:mt-0"
-        >
-          {/* Orbital Rings */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border-[0.5px] border-white/10 rounded-full pointer-events-none z-0"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[170%] h-[170%] border-[0.5px] border-white/5 rounded-full pointer-events-none z-0"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220%] h-[220%] border-[0.5px] border-white/5 rounded-full pointer-events-none z-0 hidden lg:block"></div>
+        {/* Right Column - Vertically centered caricature */}
+        <div className="relative h-full flex items-center justify-center min-h-[500px] lg:min-h-[700px]">
 
-          {/* Floating Tech Logos on Orbits */}
-          
-          {/* 1. Orange Shield (HTML5 style) - Top Left */}
-          <motion.div 
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[10%] left-[5%] z-20 rotate-[-15deg]"
+          {/* Main Caricature Image - Enlarged and Bottomed */}
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="relative z-10 w-[350px] sm:w-[450px] lg:w-[580px] h-auto aspect-square"
           >
-            <div className="w-12 h-12 bg-[#e34f26] rounded-xl border border-white/20 flex items-center justify-center shadow-[0_0_20px_rgba(227,79,38,0.4)]">
-              <span className="text-white font-bold text-2xl font-serif">5</span>
-            </div>
-          </motion.div>
-
-          {/* 2. Blue Shield (CSS3 style) - Mid Left */}
-          <motion.div 
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute top-[50%] left-[-15%] z-20 rotate-[10deg]"
-          >
-            <div className="w-10 h-10 bg-[#264de4] rounded-xl border border-white/20 flex items-center justify-center shadow-[0_0_20px_rgba(38,77,228,0.4)]">
-              <span className="text-white font-bold text-xl font-serif">3</span>
-            </div>
-          </motion.div>
-
-          {/* 3. Node.js (Green Hex style) - Bottom Mid */}
-          <motion.div 
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute bottom-[5%] left-[25%] z-20 rotate-[-5deg]"
-          >
-            <div className="w-11 h-11 bg-[#1a1a1a] rounded-xl border border-[#68a063]/50 flex items-center justify-center shadow-[0_0_20px_rgba(104,160,99,0.3)]">
-              <span className="text-[#68a063] font-bold text-lg">JS</span>
-            </div>
-          </motion.div>
-
-          {/* 4. Figma Dots - Right Mid */}
-          <motion.div 
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-            className="absolute top-[40%] right-[-5%] z-20 rotate-[15deg]"
-          >
-            <div className="flex flex-col items-center justify-center gap-[3px] drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-              <div className="flex gap-[3px]">
-                <div className="w-[10px] h-[10px] rounded-full bg-[#f24e1e]"></div>
-                <div className="w-[10px] h-[10px] rounded-full bg-[#ff7262]"></div>
-              </div>
-              <div className="flex gap-[3px]">
-                <div className="w-[10px] h-[10px] rounded-full bg-[#a259ff]"></div>
-                <div className="w-[10px] h-[10px] rounded-full bg-[#1abcfe]"></div>
-              </div>
-              <div className="w-[10px] h-[10px] rounded-full bg-[#0acf83] self-start ml-[3px]"></div>
-            </div>
-          </motion.div>
-
-          {/* Main Image Container */}
-          <div className="relative z-10 w-64 h-64 sm:w-80 sm:h-80 lg:w-[380px] lg:h-[380px]">
-            <div className="absolute inset-0 rounded-full border border-white/10 bg-[#1a0c05] shadow-[0_0_80px_rgba(255,94,0,0.15)] overflow-hidden">
+            <div className="w-full h-full rounded-full border-b-0 bg-gradient-to-b from-[#1a0c05] to-transparent overflow-hidden flex items-end">
                <img
                   src="https://res.cloudinary.com/dx2ttgkba/image/upload/v1775812702/Rachit_Carricature_fcaza8.png"
                   alt="Rachit Garg"
-                  className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+                  className="w-full h-[110%] object-cover object-top opacity-100"
                 />
             </div>
-          </div>
+          </motion.div>
 
-          {/* Floating Glassmorphism Card */}
-          {/* <motion.div 
-            animate={{ y: [0, -10, 0] }}
-            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-            className="absolute bottom-4 lg:bottom-12 left-[-10%] md:left-[-30%] bg-[#1a0c05]/40 backdrop-blur-xl border border-white/10 p-5 rounded-3xl w-72 shadow-2xl z-30"
-          >
-            <Quote className="text-white h-6 w-6 mb-2 opacity-50" />
-            <p className="text-gray-300 text-xs leading-relaxed mb-4">
-              "Rachit consistently delivers clean code and innovative solutions, seamlessly bridging the gap between complex AI logic and intuitive user interfaces."
-            </p>
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full overflow-hidden border border-white/20">
-                <img src="https://i.pravatar.cc/100?img=47" alt="Reviewer" className="w-full h-full object-cover" />
-              </div>
-              <div>
-                <p className="text-white text-sm font-semibold">Caroline Abbott</p>
-                <p className="text-gray-500 text-[10px]">Business Owner</p>
-              </div>
-            </div>
-          </motion.div> */}
-          
-        </motion.div>
+        </div>
       </div>
     </div>
   );
@@ -359,7 +296,7 @@ const HomePage: React.FC = () => {
       <HeroSection />
       
       {/* Skills Section */}
-      <div id="skills" className="py-24 border-t border-white/5 relative">
+      <div id="skills" className="py-24 border-t border-white/5 relative bg-[#050100]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
@@ -370,16 +307,40 @@ const HomePage: React.FC = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             <div className="bg-[#1a1310]/40 backdrop-blur-sm p-8 rounded-3xl border border-white/5 hover:border-white/10 transition-colors group">
               <div className="w-14 h-14 bg-[#ff5e00]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#ff5e00]/20 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-[#ff5e00]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3">Full-Stack Web</h3>
+              <h3 className="text-2xl font-bold text-white mb-3">Full-Stack Engineering</h3>
               <p className="text-gray-400 leading-relaxed">
-                Building responsive, scalable web applications utilizing React, Node.js, FastAPI, and robust databases.
+                Building scalable end-to-end web applications using React, Node.js, and FastAPI, with a focus on clean architecture, performance, and real-world usability.
+              </p>
+            </div>
+
+            <div className="bg-[#1a1310]/40 backdrop-blur-sm p-8 rounded-3xl border border-white/5 hover:border-white/10 transition-colors group">
+              <div className="w-14 h-14 bg-[#ff5e00]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#ff5e00]/20 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-[#ff5e00]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 3v2.25M14.25 3v2.25M4.5 8.25h15M6.75 6h10.5a2.25 2.25 0 012.25 2.25v9a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 17.25v-9A2.25 2.25 0 016.75 6zm3.75 5.25h3m-3 3h3" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-3">GenAI & Agentic AI</h3>
+              <p className="text-gray-400 leading-relaxed">
+                Developing intelligent systems using LLMs, RAG pipelines, and agent-based workflows with LangChain and LangGraph for automation and decision-making.
+              </p>
+            </div>
+
+            <div className="bg-[#1a1310]/40 backdrop-blur-sm p-8 rounded-3xl border border-white/5 hover:border-white/10 transition-colors group">
+              <div className="w-14 h-14 bg-[#ff5e00]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#ff5e00]/20 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-[#ff5e00]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999A5.002 5.002 0 006 9.5 4.5 4.5 0 003 15z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-3">System Design & Deployment</h3>
+              <p className="text-gray-400 leading-relaxed">
+                Designing and deploying production-ready systems using Docker, APIs, and cloud platforms with a focus on scalability, reliability, and performance.
               </p>
             </div>
 
@@ -389,9 +350,9 @@ const HomePage: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3">AI & IoT Integration</h3>
+              <h3 className="text-2xl font-bold text-white mb-3">AI & IoT Systems</h3>
               <p className="text-gray-400 leading-relaxed">
-                Developing intelligent systems combining embedded hardware (ESP32), computer vision, and machine learning models.
+                Building real-time intelligent systems by integrating IoT hardware (ESP32, sensors) with AI models for automation and real-world problem solving.
               </p>
             </div>
           </div>
@@ -399,8 +360,7 @@ const HomePage: React.FC = () => {
       </div>
       
       {/* Projects Section */}
-      <section id="experience" className="py-24 relative overflow-hidden">
-        {/* Subtle background glow */}
+      <section id="experience" className="py-24 relative overflow-hidden bg-[#050100]">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#ff5e00]/5 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
@@ -441,7 +401,7 @@ const HomePage: React.FC = () => {
       </section>
       
       {/* Contact Section */}
-      <div id="connect" className="py-24 border-t border-white/5">
+      <div id="connect" className="py-24 border-t border-white/5 bg-[#050100]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
             

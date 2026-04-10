@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar, MapPin, Building, ArrowUpRight } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, Building } from 'lucide-react';
 import { experiences } from '../data/experience';
 
 const ExperiencePage: React.FC = () => {
@@ -75,7 +75,7 @@ const ExperiencePage: React.FC = () => {
                     ? 'bg-[#ff5e00]/10 text-[#ff5e00] border-[#ff5e00]/20' 
                     : 'bg-white/5 text-gray-300 border-white/10'
                   }`}>
-                    Internship
+                    {exp.type}
                   </span>
                   
                   <div className="flex items-center text-gray-400 text-sm font-medium">

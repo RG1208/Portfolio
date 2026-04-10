@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-// Assuming skills data is imported correctly
 import { skills, Skill } from '../data/skills';
 
-type SkillCategory = 'all' | 'frontend' | 'backend' | 'languages' | 'tools' | 'frameworks';
+type SkillCategory =
+  | 'all'
+  | 'frontend'
+  | 'languages'
+  | 'backend'
+  | 'ai'
+  | 'database'
+  | 'devops'
+  | 'iot'
+  | 'tools';
 
 interface SkillCardProps {
   skill: Skill;
@@ -50,17 +58,18 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index }) => {
           </span>
         </div>
 
-        {/* Progress Bar Track */}
         <div className="w-full bg-white/5 rounded-full h-2 overflow-hidden border border-white/5">
-          {/* Animated Fill */}
           <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: `${skill.level}%` }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2 + (index * 0.05), ease: "easeOut" }}
+            transition={{
+              duration: 1,
+              delay: 0.2 + index * 0.05,
+              ease: 'easeOut',
+            }}
             className="h-full bg-gradient-to-r from-[#ff5e00] to-[#ffaa00] rounded-full relative"
           >
-            {/* Glow effect on the tip of the progress bar */}
             <div className="absolute top-0 right-0 bottom-0 w-4 bg-white/30 blur-[2px] rounded-full"></div>
           </motion.div>
         </div>
@@ -74,7 +83,8 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index }) => {
 };
 
 const SkillsPage: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<SkillCategory>('all');
+  const [activeCategory, setActiveCategory] =
+    useState<SkillCategory>('all');
 
   useEffect(() => {
     document.title = 'Skills | Rachit Garg';
@@ -82,11 +92,15 @@ const SkillsPage: React.FC = () => {
   }, []);
 
   const categories: { value: SkillCategory; label: string }[] = [
-    { value: 'all', label: 'All Skills' },
-    { value: 'frontend', label: 'Frontend' },
-    { value: 'backend', label: 'Backend' },
-    { value: 'languages', label: 'Languages' },
-    { value: 'tools', label: 'Tools' },
+    { value: 'all', label: 'All' },
+    { value: 'ai', label: '🧠 AI / GenAI' },
+    { value: 'backend', label: '⚙️ Backend' },
+    { value: 'frontend', label: '🎨 Frontend' },
+    { value: 'languages', label: '💻 Languages' },
+    { value: 'database', label: '🗄️ Databases' },
+    { value: 'devops', label: '☁️ DevOps & Cloud' },
+    { value: 'iot', label: '🔌 IoT' },
+    { value: 'tools', label: '🛠️ Tools' },
   ];
 
   const filteredSkills =
@@ -97,29 +111,34 @@ const SkillsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#050100] text-white font-sans relative overflow-hidden pt-24 pb-20 selection:bg-[#ff5e00]/30 selection:text-white">
       
-      {/* Background Glow matching the theme */}
+      {/* Background Glow */}
       <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1000px] h-[800px] bg-[radial-gradient(ellipse_at_center,_#612100_0%,_transparent_70%)] opacity-40 z-0 pointer-events-none fixed"></div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
-        {/* Header Section */}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-[#ff5e00] font-semibold tracking-wider uppercase text-sm mb-3">Technical Arsenal</h2>
+          <h2 className="text-[#ff5e00] font-semibold tracking-wider uppercase text-sm mb-3">
+            Technical Arsenal
+          </h2>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4">
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Skills.</span>
+            My{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">
+              Skills.
+            </span>
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            A comprehensive overview of the programming languages, frameworks, and tools I use to bring ideas to life.
+            A comprehensive overview of the technologies and tools I use to build scalable, intelligent systems.
           </p>
         </motion.div>
 
-        {/* Filter Navigation */}
-        <motion.div 
+        {/* Filter */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -143,14 +162,11 @@ const SkillsPage: React.FC = () => {
         </motion.div>
 
         {/* Skills Grid */}
-        <motion.div 
-          layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredSkills.map((skill, index) => (
             <SkillCard key={skill.name} skill={skill} index={index} />
           ))}
-          
+
           {filteredSkills.length === 0 && (
             <div className="col-span-full text-center py-12 text-gray-500">
               No skills found for this category.
