@@ -46,7 +46,7 @@ export const experiences: Experience[] = [
     id: 3,
     type: 'Full-Time',
     role: 'AI Engineer Intern',
-    company: 'SysTools',
+    company: 'Systools Software Pvt. Ltd.',
     location: 'New Delhi, India',
     duration: 'July 2025',
     description: [
