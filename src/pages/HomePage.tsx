@@ -2,15 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Github, Linkedin, Mail, Send, Briefcase } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import emailjs from '@emailjs/browser';
 import { projects, Project } from '../data/projects';
-
-const EMAILJS_CONFIG = {
-  serviceId: 'service_55ra9qo',
-  templateId: 'template_pnhmxop',
-  publicKey: 'awBV_hFwy-y6eH96-',
-  toEmail: 'rachitgarg1208@gmail.com',
-};
+import { sendContactEmail } from '../lib/contactEmail';
 
 type FormValues = {
   name: string;
@@ -150,22 +143,22 @@ const ContactForm: React.FC = () => {
     setSubmitError('');
 
     try {
-      await emailjs.send(
-        EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId,
-        {
-          from_name: formValues.name, from_email: formValues.email,
-          subject: formValues.subject, message: formValues.message,
-          to_email: EMAILJS_CONFIG.toEmail,
-        },
-        EMAILJS_CONFIG.publicKey
-      );
+      await sendContactEmail({
+        ...formValues,
+        sourcePage: '/',
+      });
       setIsSubmitting(false);
       setSubmitSuccess(true);
       setFormValues({ name: '', email: '', subject: '', message: '' });
       setTimeout(() => setSubmitSuccess(false), 5000);
     } catch (error) {
       setIsSubmitting(false);
-      setSubmitError('Failed to send message. Please try again.');
+      const message =
+        error instanceof Error
+          ? error.message
+          : 'Failed to send message. Please try again.';
+
+      setSubmitError(message);
     }
   };
 
