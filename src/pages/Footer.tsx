@@ -5,22 +5,21 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
-      <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
-              © {currentYear} Rachit Garg. 
-             
+    <footer className="bg-[#050100] border-t border-white/5 relative z-10">
+      <div className="max-w-7xl mx-auto py-8 px-6 md:px-12">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="text-center md:text-left">
+            <p className="text-gray-500 text-sm font-medium">
+              © {currentYear} Rachit Garg. All rights reserved.
             </p>
           </div>
           
-          <div className="flex space-x-4">
+          <div className="flex space-x-6">
             <a
               href="https://github.com/RG1208"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+              className="text-gray-500 hover:text-[#ff5e00] transition-colors duration-300"
               aria-label="GitHub"
             >
               <Github className="h-5 w-5" />
@@ -29,14 +28,14 @@ const Footer: React.FC = () => {
               href="https://linkedin.com/in/rg1208"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+              className="text-gray-500 hover:text-[#ff5e00] transition-colors duration-300"
               aria-label="LinkedIn"
             >
               <Linkedin className="h-5 w-5" />
             </a>
             <a
               href="mailto:rachitgarg1208@gmail.com"
-              className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+              className="text-gray-500 hover:text-[#ff5e00] transition-colors duration-300"
               aria-label="Email"
             >
               <Mail className="h-5 w-5" />
